@@ -1,0 +1,9 @@
+#!/bin/sh
+
+uci -q batch <<-EOF
+	delete firewall.ultari
+	set firewall.ultari=include
+	set firewall.ultari.type=script
+	set firewall.ultari.path=/usr/lib/ultari/restart.sh
+	commit firewall
+EOF
